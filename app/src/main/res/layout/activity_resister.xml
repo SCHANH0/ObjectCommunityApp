@@ -4,13 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:ignore="ExtraText"
+    android:background="@drawable/img_background"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/img_background"><![CDATA[
-    ?xml version="1.0" encoding="utf-8"?>
-    ]]>
+    tools:context=".ResisterActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -30,12 +27,12 @@
         android:id="@+id/edittext_username"
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="60dp"
         android:background="#00FFFFFf"
         android:drawableLeft="@drawable/username"
         android:hint="@string/username"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff" />
+        android:textColorHint="#ffffff"/>
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="220dp"
@@ -48,14 +45,26 @@
         android:inputType="textPassword"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff"/>
+    <EditText
+        android:id="@+id/edittext_cnf_password"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFf"
+        android:drawableLeft="@drawable/password"
+        android:hint="@string/confirm_password"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"/>
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_register"
         android:layout_width="220dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="#00ffffff"
         android:textStyle="bold"
-        android:text="@string/login"
+        android:text="@string/register"
         android:textSize="18sp"
         android:textColor="#ffffff"/>
 
@@ -70,29 +79,15 @@
             android:layout_height="35dp"
             android:textColor="#ffffff"
             android:paddingRight="10dp"
-            android:text="@string/not_registered"/>
+            android:text="@string/already_registered"/>
         <TextView
-            android:id="@+id/textview_register"
+            android:id="@+id/textview_login"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:paddingLeft="10dp"
             android:textStyle="bold"
             android:textColor="#ffffff"
-            android:text="@string/register"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textview_pass_reset"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:text="@string/passwordreset"/>
+            android:text="@string/login_activity"/>
     </LinearLayout>
 
 </LinearLayout>
