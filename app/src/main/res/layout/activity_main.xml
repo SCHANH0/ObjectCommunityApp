@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="10dp"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:text="@string/objectcommunityapp"/>
@@ -34,6 +34,9 @@
         android:background="#00FFFFFf"
         android:drawableLeft="@drawable/username"
         android:hint="@string/username"
+        android:digits="abcdefghijklmnopqrstuvwxyz0123456789@._-"
+        android:maxLength="20"
+        android:maxLines="1"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff" />
     <EditText
@@ -44,6 +47,9 @@
         android:background="#00FFFFFf"
         android:drawableLeft="@drawable/password"
         android:hint="@string/password"
+        android:digits="abcdefghijklmnopqrstuvwxyz0123456789~!@#$%^*_-"
+        android:maxLength="20"
+        android:maxLines="1"
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="#ffffff"

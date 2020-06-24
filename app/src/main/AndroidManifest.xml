@@ -30,10 +30,10 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResisterActivity" />
         <activity android:name=".PasswordResetActivity" />
+        <activity android:name=".ResisterActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".MemberActivity"></activity>
+        <activity android:name=".MemberActivity" />
     </application>
 
 </manifest>

@@ -2,18 +2,30 @@ package com.example.objectcommunityapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 class Board {
     String title;
@@ -30,8 +42,9 @@ class Board {
 }
 
 public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "HomeActivity";
     TextView mTextLogo;
-    Button sBtn;
+    Button sBtn,oBtn,mBtn;
     EditText sText,sText2;
     RecyclerView listView1;
     FirebaseAuth mAuth;
@@ -53,27 +66,68 @@ public class HomeActivity extends AppCompatActivity {
 
         FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
 
+
         if(user == null){
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            myStartActivity(MainActivity.class);
         }else {
-            for (UserInfo profile : user.getProviderData()){
-                String name = profile.getDisplayName();
-                if (name == null) {
-                    Intent memintent = new Intent(HomeActivity.this, MemberActivity.class);
-                    startActivity(memintent);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            DocumentReference docRef = db.collection("users").document(user.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document != null) {
+                            if (document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                            } else {
+                                Log.d(TAG, "No such document");
+                                //myStartActivity(MemberActivity.class);
+                            }
+                        }
+                    } else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
                 }
-            }
+            });
         }
-        Toast.makeText(HomeActivity.this,"환영합니다!!", Toast.LENGTH_SHORT).show();
         mTextLogo = (TextView) findViewById(R.id.text_logo);
         sBtn=(Button)findViewById(R.id.search_btn);
+        oBtn=(Button)findViewById(R.id.out_btn);
+        mBtn=(Button)findViewById(R.id.member_btn);
         sText=(EditText)findViewById(R.id.search_text);
         sText2=(EditText)findViewById(R.id.search_text2);
         mAuth = FirebaseAuth.getInstance();;
 
-        sBtn.setOnClickListener(new View.OnClickListener() {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("message").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        oBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -83,5 +137,17 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myStartActivity(MemberActivity.class);
+            }
+        });
+
     }
+    private void myStartActivity(Class c){
+        Intent intent = new Intent(this, c);
+        startActivity(intent);
+    }
+
 }

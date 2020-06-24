@@ -21,4 +21,9 @@
 
     <string name="ok">확인</string>
     <string name="objectcommunityapp">ObjectCommunityApp</string>
+    <string name="search">검색어</string>
+    <string name="sarch_OK">검색</string>
+    <string name="logout">로그아웃</string>
+    <string name="ch_memberinfo">회원정보변경</string>
+    <string name="banner_ad">광고</string>
 </resources>

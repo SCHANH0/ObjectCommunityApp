@@ -15,12 +15,12 @@
         android:layout_marginTop="5dp"
         android:text="@string/objectcommunityapp"
         android:textColor="#000000"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="35dp"
         android:text="@string/member"
         android:textColor="#000000"
         android:textSize="35dp"
@@ -29,27 +29,43 @@
         android:id="@+id/member_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/name"/>
+        android:layout_marginTop="65dp"
+        android:hint="@string/name"
+        android:maxLength="10"
+        android:maxLines="1"/>
     <EditText
         android:id="@+id/member_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/phone"/>
+        android:layout_marginTop="25dp"
+        android:hint="@string/phone"
+        android:digits="0123456789-+"
+        android:maxLength="17"
+        android:maxLines="1"/>
     <EditText
         android:id="@+id/member_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/date"/>
+        android:layout_marginTop="25dp"
+        android:hint="@string/date"
+        android:digits="0123456789-"
+        android:maxLength="10"
+        android:maxLines="1"/>
     <EditText
         android:id="@+id/member_Address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:hint="@string/Address"/>
+        android:hint="@string/Address"
+        android:maxLength="30"
+        android:maxLines="1"/>
     <Button
         android:id="@+id/member_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ok"/>
+        android:layout_marginTop="25dp"
+        android:text="@string/ok"
+        android:textSize="22sp"/>
 </LinearLayout>
