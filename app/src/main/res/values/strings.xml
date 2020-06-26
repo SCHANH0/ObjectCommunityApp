@@ -25,5 +25,11 @@
     <string name="sarch_OK">검색</string>
     <string name="logout">로그아웃</string>
     <string name="ch_memberinfo">회원정보변경</string>
-    <string name="banner_ad">광고</string>
+    <string name="banner_ad">로고_광고배너</string>
+    <string name="writing">글쓰기</string>
+    <string name="singo">신고</string>
+    <string name="title">제목</string>
+    <string name="story">내용</string>
+    <string name="comment">댓글</string>
+    <string name="chsh_ok">캐시백확인</string>
 </resources>

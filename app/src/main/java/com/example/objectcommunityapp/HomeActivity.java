@@ -44,8 +44,8 @@ class Board {
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
     TextView mTextLogo;
-    Button sBtn,oBtn,mBtn;
-    EditText sText,sText2;
+    Button sBtn,oBtn,mBtn,cBtn,rBtn;
+    EditText sText;
     RecyclerView listView1;
     FirebaseAuth mAuth;
 
@@ -95,8 +95,9 @@ public class HomeActivity extends AppCompatActivity {
         sBtn=(Button)findViewById(R.id.search_btn);
         oBtn=(Button)findViewById(R.id.out_btn);
         mBtn=(Button)findViewById(R.id.member_btn);
+        rBtn=(Button)findViewById(R.id.start_btn);
+        cBtn=(Button)findViewById(R.id.chshok_btn);
         sText=(EditText)findViewById(R.id.search_text);
-        sText2=(EditText)findViewById(R.id.search_text2);
         mAuth = FirebaseAuth.getInstance();;
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -141,6 +142,18 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myStartActivity(MemberActivity.class);
+            }
+        });
+        rBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myStartActivity(Home2Activity.class);
+            }
+        });
+        cBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myStartActivity(CashbackActivity.class);
             }
         });
 

@@ -15,74 +15,69 @@
         android:layout_marginTop="5dp"
         android:text="@string/banner_ad"
         android:textSize="40dp"/>
-
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="wrap_content"
+        android:layout_height="370dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="63dp">
 
-        <EditText
-            android:id="@+id/search_text"
-            android:layout_width="230dp"
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/search"
-            android:maxLines="1" />
+            android:text="캐시백사용" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계좌로 환급" />
+    </RadioGroup>
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="현재캐시백 잔액 : "
+            android:textSize="20sp"
+            android:id="@+id/cashback" />
 
         <Button
             android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sarch_OK"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/start_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/writing"
+            android:layout_marginLeft="50dp"
+            android:text="@string/ok"
             android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:text="오늘의 세일!!"
+        android:text="사용하는방법"
         android:textStyle="bold"
-        android:textSize="20sp" />
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"/>
+        android:textSize="20sp"/>
     <TextView
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:text="오늘의 무료 이벤트!!"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        />
-    <ListView
-        android:id="@+id/listView2"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"/>
+        android:text="1.~~~~~~~~~~~~~~"
+        android:textSize="15sp"/>
     <TextView
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:text="오늘의 제품!!"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:id="@+id/cashback" />
-    <ListView
-        android:id="@+id/listView3"
-        android:layout_width="wrap_content"
-        android:layout_height="115dp"/>
+        android:text="2.~~~~~~~~~~~~~~"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3.~~~~~~~~~~~~~~"
+        android:textSize="15sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,12 +85,6 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/chshok_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ffffff"
-            android:text="@string/chsh_ok" />
         <Button
             android:id="@+id/member_btn"
             android:layout_width="wrap_content"
